@@ -336,9 +336,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39fb8a1be94ab7f4f947c79034e1844b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _walkSpeed: 5
-  _sprintSpeed: 25
+  _walkSpeed: 1
+  _sprintSpeed: 2
+  _acceleration: 0.5
   _characterController: {fileID: 349912832}
+  _gravityScale: 1
 --- !u!143 &349912832
 CharacterController:
   m_ObjectHideFlags: 0
@@ -513,7 +515,7 @@ GameObject:
   - component: {fileID: 444655762}
   - component: {fileID: 444655761}
   - component: {fileID: 444655760}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}

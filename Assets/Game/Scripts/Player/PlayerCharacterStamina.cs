@@ -29,28 +29,31 @@ public class PlayerCharacterStamina : MonoBehaviour
 
     public void CalculateStamina()
     {
-        // Mengecek apakah character sedang sprint atau tidak
-        if (_characterMovement != null && _characterMovement.IsSprint)
-        {
-            // Jika sedang sprint, Mengecek apakah stamina masih ada
-            if (_currentStamina > 0)
-            {
-                // Jika sedang sprint dan stamina masih ada, stamina akan dikurangi.
-                // Dengan jumlah stamina yang dibutuhkan.
-                // Dikalikan dengan Time.deltaTime karena function ini akan dipanggil oleh function Update.
-                _currentStamina = _currentStamina - _sprintStaminaCost * Time.deltaTime;
-            }
-            else
-            {
-                // Jika sedang sprint dan stamina habis, maka player berhenti sprint.
-                _characterMovement.SetSprint(false);
-            }
-        }
-        else
-        {
-            // Jika character tidak sedang sprint maka tambahkan stamina dengan nilai regenerasi stamina.
-            // Dikalikan dengan Time.deltaTime karena function ini akan dipanggil oleh function Update.
-            _currentStamina = _currentStamina + _staminaRegenValue * Time.deltaTime;
+        // Mengecek apakah character sedang sprint atau tidak 
+        if (_characterMovement.IsSprint) 
+        { 
+            // Jika sedang sprint, Mengecek apakah stamina masih ada 
+            if (_currentStamina > 0) 
+            { 
+                // Jika sedang sprint dan stamina masih ada, stamina akan dikurangi. 
+                // Dengan jumlah stamina yang dibutuhkan. 
+                // Dikalikan dengan Time.deltaTime karena function ini akan dipanggil 
+                // oleh function Update. 
+                _currentStamina = _currentStamina - _sprintStaminaCost * Time.deltaTime; 
+            } 
+            else 
+            { 
+                // Jika sedang sprint dan stamina habis, maka player berhenti sprint. 
+                _characterMovement.SetSprint(false); 
+            } 
+        } 
+        else 
+        { 
+            // Jika character tidak sedang sprint maka tambahkan stamina dengan 
+            // nilai regenerasi stamina. 
+            // Dikalikan dengan Time.deltaTime karena function ini akan dipanggil 
+            // oleh function Update. 
+            _currentStamina = _currentStamina + _staminaRegenValue * Time.deltaTime; 
         }
 
         // Membatasi stamina player, minimum: 0; maksimum: maximum stamina
